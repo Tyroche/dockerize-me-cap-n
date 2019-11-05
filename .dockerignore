@@ -1,0 +1,10 @@
+*
+# White list only the required files
+!src/
+!public/
+!typings/
+!package.json
+!razzle.config.json
+!tsconfig.json
+!tslint.json
+!yarn.lock
