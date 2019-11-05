@@ -1,9 +1,9 @@
-import express from 'express';
-import React from 'react';
-import { renderToString } from 'react-dom/server';
-import { StaticRouter } from 'react-router-dom';
+import express from "express";
+import React from "react";
+import { renderToString } from "react-dom/server";
+import { StaticRouter } from "react-router-dom";
 
-import App from './App';
+import App from "./App";
 
 let assets: any;
 
@@ -13,9 +13,12 @@ const syncLoadAssets = () => {
 syncLoadAssets();
 
 const server = express()
-  .disable('x-powered-by')
+  .disable("x-powered-by")
   .use(express.static(process.env.RAZZLE_PUBLIC_DIR!))
-  .get('/*', (req: express.Request, res: express.Response) => {
+  .use("/api/user/1", (req, res) => {
+    return res.send({ name: "Chris" });
+  })
+  .get("/*", (req: express.Request, res: express.Response) => {
     const context = {};
     const markup = renderToString(
       <StaticRouter context={context} location={req.url}>
@@ -33,10 +36,10 @@ const server = express()
         ${
           assets.client.css
             ? `<link rel="stylesheet" href="${assets.client.css}">`
-            : ''
+            : ""
         }
           ${
-            process.env.NODE_ENV === 'production'
+            process.env.NODE_ENV === "production"
               ? `<script src="${assets.client.js}" defer></script>`
               : `<script src="${assets.client.js}" defer crossorigin></script>`
           }
