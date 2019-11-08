@@ -9,10 +9,14 @@
     "start:prod": "NODE_ENV=production node build/server.js"
   },
   "dependencies": {
+    "@types/bluebird": "^3.5.28",
+    "@types/redis": "^2.8.14",
+    "bluebird": "^3.7.1",
     "express": "^4.17.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.1",
+    "redis": "^2.8.0",
     "tslint-config-prettier": "^1.18.0"
   },
   "devDependencies": {
