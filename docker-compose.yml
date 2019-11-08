@@ -6,7 +6,7 @@ services:
       context: .
     environment:
       - CI=true
-    command: yarn test
+    command: yarn test --watchAll=${WATCH-false} --colors
     volumes:
       - "./src:/usr/src/app/src"
   dev:

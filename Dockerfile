@@ -13,6 +13,8 @@ RUN yarn
 # RUN npm ci --only=production
 
 # # Bundle app source
-# COPY . .
+COPY ./ ./
 
 EXPOSE 3000 3001
+
+CMD ["/bin/bash"]
